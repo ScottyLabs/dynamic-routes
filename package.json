@@ -1,0 +1,26 @@
+{
+  "name": "dynamic-routes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "npm run build && npm run serve",
+    "dev": "nodemon ./src/app.js --exec babel-node -e js",
+    "build": "babel src --out-dir dist",
+    "serve": "node dist/app.js"
+  },
+  "author": "Gram Liu",
+  "license": "ISC",
+  "dependencies": {
+    "csv-parse": "^4.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "googleapis": "^39.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1"
+  }
+}
