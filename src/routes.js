@@ -5,8 +5,9 @@ const routes = (oAuth2Client, app) => {
   sheets.spreadsheets.values.get({
     spreadsheetId: process.env.spreadsheet_id,
     range: 'Routes!A2:B',
-  }, (err, routePairs) => {
+  }, (err, response) => {
     if (err) return console.log(err);
+    let routePairs = response.data.values;
     if (routePairs != null && routePairs.length) {
       routePairs.map((entry) => {
         const route = entry[0];
@@ -16,8 +17,9 @@ const routes = (oAuth2Client, app) => {
         });
       });
     }
-    app.route('/refresh', (req, res) => {
+    app.get('/refresh', (req, res) => {
       routes(oAuth2Client, app);
+      res.json({ message: 'Success!' })
     });
   });
   
