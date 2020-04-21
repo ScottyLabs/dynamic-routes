@@ -14,7 +14,7 @@ const redirect_uri = "urn:ietf:wg:oauth:2.0:oob";
 
 // routes(oAuth2Client, app);
 
-app.route('/').get((req, res) => {
+app.get('/', (req, res) => {
   res.send('ScottyLabs Dynamic Routes API');
 });
 
