@@ -18,6 +18,10 @@ app.get('/', (req, res) => {
   res.send('ScottyLabs Dynamic Routes API');
 });
 
+app.get('*', (req, res) => {
+  res.status(404).send('Page not found');
+});
+
 app.listen(port, () =>
     console.log(`App listening on port ${port}.`)
 );

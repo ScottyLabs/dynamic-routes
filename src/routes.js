@@ -12,6 +12,7 @@ const routes = (oAuth2Client, app) => {
       routePairs.map((entry) => {
         const route = entry[0];
         const location = entry[1];
+        if (route == '/') return;
         app.get(route, (req, res) => {
           res.redirect(location);
         });
