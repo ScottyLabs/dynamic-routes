@@ -17,6 +17,9 @@ const routes = (oAuth2Client, app) => {
           res.redirect(location);
         });
       });
+      app.get('/*', (req, res) => {
+        res.status(404).send('Page not found!');
+      });
     }
     app.get('/refresh', (req, res) => {
       routes(oAuth2Client, app);
