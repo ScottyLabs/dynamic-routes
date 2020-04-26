@@ -23,6 +23,8 @@
     "babel-polyfill": "^6.0.16",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-0": "^6.24.1",
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
+    "babel-core": "^6.0.20",
+    "babel-runtime": "^6.26.0"
   }
 }
