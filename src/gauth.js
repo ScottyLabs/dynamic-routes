@@ -12,7 +12,10 @@ export const authorize = (client_secret, client_id, redirect_uri) => {
     scope: 'https://www.googleapis.com/auth/spreadsheets.readonly'
   }
   oAuth2Client.setCredentials(token);
-  // getNewToken(oAuth2Client);
+  if (process.env.get_new_token === "true") {
+    getNewToken(oAuth2Client);
+    return null;
+  }
   return oAuth2Client;
 }
 

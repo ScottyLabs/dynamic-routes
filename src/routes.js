@@ -14,7 +14,8 @@ const getRoutes = async (oAuth2Client) => {
     const routePairs = response.data.values;
     return routePairs;
   } catch (e) {
-    res.status(500).send(err);
+    console.log(e);
+    throw e;
   }
 };
 
