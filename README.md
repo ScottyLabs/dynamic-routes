@@ -1,12 +1,12 @@
-# ScottyLabs Dynamic Routes API
+# ScottyLabs Go Links
 
-API for allowing dynamic creation of routes from the routes spreadsheet.
+Dynamically create short `go.scottylabs.org` links using a Google Spreadsheet.
 
 ## Usage
-Add the name of the route to use on the first column of the spreadsheet. Routes correspond to a route on the `href.scottylabs.org` subdomain
+Add the name of the route to use on the first column of the spreadsheet. Routes correspond to a route on the `go.scottylabs.org` subdomain
 e.g.
 
-`path` => `href.scottylabs.org/path`
+`path` => `go.scottylabs.org/path`
 
 Fill in the corresponding redirect location on the second column of the routes spreadsheet.
 
