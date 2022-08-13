@@ -28,23 +28,29 @@ const setupRoutes = async (oAuth2Client, app) => {
       res.json({ message: "Success!" });
     });
     newRouter.get("/", (req, res) => {
-      res.status(200).send('ScottyLabs Dynamic Routes API');
-    })
+      res.status(200).send("ScottyLabs Dynamic Routes API");
+    });
     newRouter.get("/*", (req, res) => {
-      const path = req.originalUrl;
+      const path = req.path;
       try {
         const found = routePairs.some((entry) => {
           const route = entry[0];
-          const location = entry[1];
+          const location = new URL(entry[1]);
           if (reserved_routes.includes(route)) return false;
           if (path === route) {
-            res.redirect(location);
+            if (req.query) {
+              // Forward URL query params to the destination
+              for (const paramKey in req.query) {
+                location.searchParams.append(paramKey, req.query[paramKey]);
+              }
+            }
+            res.redirect(location.toString());
             return true;
           }
           return false;
         });
         if (!found) {
-          return res.status(404).send("Page not found!" );
+          return res.status(404).send("Page not found!");
         }
       } catch (e) {
         console.log(e);
